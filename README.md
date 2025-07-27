@@ -135,4 +135,4 @@ The workflow follows the typical ML pipeline:
 - **Confusion Matrix**: Showed effective detection of fraudulent cases with minimal false positives.
 - **Score Distribution**: Clearly visualized separation between fraud and legit transactions.
 
-> See visualizations in the [📊 Results](#-results) section above.
+> See visualizations in the [📊 Results](#results) section above.
