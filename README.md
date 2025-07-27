@@ -102,3 +102,37 @@ Histogram showing how anomaly scores are distributed across legitimate and fraud
 ![Score Distribution - Test](results/plots/score_distribution_Test.png)
 
 ![Score Distribution - Validation](results/plots/score_distribution_Validation.png)
+
+
+## 🧠 Project Insights
+
+### 🔍 Approach
+
+This project leverages an **unsupervised anomaly detection approach** using **Isolation Forest**, a lightweight and scalable algorithm particularly suited for high-dimensional datasets like credit card transactions. It focuses on flagging outliers (potential frauds) without relying on labeled data during training.
+
+The workflow follows the typical ML pipeline:
+
+1. **Preprocessing**: Normalize features, handle imbalance.
+2. **Modeling**: Train `IsolationForest` with adjusted contamination level.
+3. **Evaluation**: Use ROC-AUC, confusion matrix, and score visualization to assess model quality.
+
+### ⚙️ Decisions Made
+
+- **Isolation Forest** was chosen over alternatives (e.g., One-Class SVM, Autoencoders) due to its speed and interpretability.
+- ROC-AUC was prioritized as the main metric since **class imbalance** makes accuracy misleading.
+- Git LFS was integrated to handle the large dataset within GitHub limitations.
+- Plots were saved and embedded to provide visual interpretability — important for unsupervised results.
+
+### 🚧 Challenges Faced
+
+- Handling **highly imbalanced data** (fraud <1%) required extra care during evaluation.
+- GitHub blocked file pushes due to dataset size — resolved using **Git LFS**.
+- Isolation Forest does not output class probabilities, so `-AnomalyScore` was used as a proxy for decision-making and ROC curve generation.
+
+### 📊 Results / Metrics
+
+- **ROC-AUC Score**: Achieved a strong separation between normal and fraudulent transactions.
+- **Confusion Matrix**: Showed effective detection of fraudulent cases with minimal false positives.
+- **Score Distribution**: Clearly visualized separation between fraud and legit transactions.
+
+> See visualizations in the [📊 Results](#-results) section above.
