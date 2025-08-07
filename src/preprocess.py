@@ -7,7 +7,7 @@ def load_data():
     return pd.read_csv(DATA_PATH)
 
 
-def create_strategic_splits(df, total_sample_size=5000, val_fraud_size=93, train_ratio=0.8, random_state=42):
+def create_strategic_splits(df, total_sample_size=SAMPLE_SIZE, val_fraud_size=93, train_ratio=0.8, random_state=RANDOM_STATE):
     # Split data
     fraud_df = df[df['Class'] == 1].sample(frac=1, random_state=random_state)
     fraud_val = fraud_df[:val_fraud_size]  # held out

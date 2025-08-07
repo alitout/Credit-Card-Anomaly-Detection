@@ -1,7 +1,8 @@
 from sklearn.ensemble import IsolationForest
 from sklearn.metrics import roc_auc_score
+from src.config import RANDOM_STATE
 
-def tune_isolation_forest(df, param_grid, random_state=42):
+def tune_isolation_forest(df, param_grid, random_state=RANDOM_STATE):
     X_train = df[df['Class'] == 0].drop('Class', axis=1)  # unsupervised training (on legit only)
     X_test = df.drop('Class', axis=1)
     y_true = df['Class']
